@@ -82,7 +82,8 @@ In this particular case, we can conclude that there are 3 method in terms of fin
  
           for(int i = 0;i < len;i++) {
           for(int j = 0;j < len;j++) {
-          if((i + j) % 2 && vis[i][j] == 2) { /*if it's |S| equals to even, and the 'correct bracket' (vis[i][j]) is 2 as we                                                          already increase it from the code in 2nd and 3rd method, the ans will be increase to                                                     count the correct brackets.*/
+          if((i + j) % 2 && vis[i][j] == 2) { /*if it's |S| equals to even, and the 'correct bracket' (vis[i][j]) is 2 as we
+                                                already increase it from the code in 2nd and 3rd method, the ans will be increase to                                                     count the correct brackets.*/
              ans++;
                 }
              }
