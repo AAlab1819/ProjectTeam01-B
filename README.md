@@ -134,4 +134,6 @@ COMPLEXITY : O(N^4)
 The DP part is when we use 'bool solve' function for the memoization, to store the calculation so that it keeps the records of the results and does not run the same inputs more than once. So it is 'supposedly' should save time. 
 
 ### CONCLUSION 
-Greedy is better than DP for this problem if we see from the memory and time complexity. One of the reason is DP uses nested loops which make the time complexity become higher.
+Greedy is better than DP for this problem if we see from the memory and time complexity. One of the reason is DP uses nested loops which make the time complexity become higher. As we can see from the complexity of both techniques: 
+- DP = O(N^4) 
+- Greedy = O(N^2)
