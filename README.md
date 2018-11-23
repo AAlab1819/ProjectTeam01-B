@@ -96,17 +96,7 @@ COMPLEXITY : O(N^2) where N = |s|
 
 #### INPUT SAMPLES
 
-     INPUT: 
-     ((??))
-     
-     OUTPUT:
-     7
-    ----------------------
-     INPUT:
-     ((())()()???))
-     
-     OUTPUT:
-     21
+![GREEDY](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/greedy%20monster.PNG)
 
 ### 2. Dynamic Programming
 Dynamic Programming is to breaking down an optimization problem into simples sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. In order solve this problem by using DP, we use memoization which ensures that a method doesn't run for the same inputs more than once by keeping a record of the results for the given inputs. 
@@ -148,6 +138,8 @@ COMPLEXITY : O(N^4)
 #### WHERE IS THE DP PART? 
 The DP part is when we use 'bool solve' function for the memoization, to store the calculation so that it keeps the records of the results and does not run the same inputs more than once. So it is 'supposedly' should save time. 
 
+#### INPUT SAMPLES
+!(DP)[https://github.com/AAlab1819/ProjectTeam01-B/blob/master/monster%20dp.PNG]
 ### CONCLUSION 
 Greedy is better than DP for this problem if we see from the memory and time complexity. One of the reason is DP uses nested loops which make the time complexity become higher. As we can see from the complexity of both techniques: 
 - DP = O(N^4) 
