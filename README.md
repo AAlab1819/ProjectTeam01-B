@@ -80,14 +80,13 @@ In this particular case, we can conclude that there are 3 method in terms of fin
  
  lastly, for the output: 
  
- 
-            for(int i = 0;i < len;i++) {
-            for(int j = 0;j < len;j++) {
-            if((i + j) % 2 && vis[i][j] == 2) { /*if it's |S| equals to even, and the 'correct bracket' (vis[i][j]) is 2 as we                                                          already increase it from the code in 2nd and 3rd method, the ans will be increase to                                                     count the correct brackets.*/
-                ans++;
-                  }
-               }
-            }
+          for(int i = 0;i < len;i++) {
+          for(int j = 0;j < len;j++) {
+          if((i + j) % 2 && vis[i][j] == 2) { /*if it's |S| equals to even, and the 'correct bracket' (vis[i][j]) is 2 as we                                                          already increase it from the code in 2nd and 3rd method, the ans will be increase to                                                     count the correct brackets.*/
+             ans++;
+                }
+             }
+          }
     
 #### WHERE IS THE GREEDY PART? 
 The greedy part is when we use those methods, which are checking one index with another index from right to left and also from left to right to find the optimal solution, in terms, not reverses the decision. By looking at our algorithm, we can see that it never reverses the decision which fit the one of the greedy terms.
@@ -119,17 +118,20 @@ So, the 'bool solve' function is to finds out if a certain substring can be a va
         
 Here is to output the amount of "correct bracket" in the inputted string. 
 
-    cin>>str;
-    for (int j=(int)str.size()-1; j>=0; j--) {
+        cin>>str;
+        for (int j=(int)str.size()-1; j>=0; j--) {
         memset(DP, -1, sizeof(DP));
         e=j+1;
         for (int i=0; i<j; i++) ans+=solve(i, 0);
-    }
-    cout<<ans<<endl;
-    return 0;
-    }
+        }
+        cout<<ans<<endl;
+        return 0;
+        }
 
 COMPLEXITY : O(N^4)
+
+#### WHERE IS THE DP PART? 
+The DP part is when we use 'bool solve' function for the memoization, to store the calculation so that it keeps the records of the results and does not run the same inputs more than once. So it is 'supposedly' should save time. 
 
 ### CONCLUSION 
 Greedy is better than DP for this problem if we see from the memory and time complexity. One of the reason is DP uses nested loops which make the time complexity become higher.
