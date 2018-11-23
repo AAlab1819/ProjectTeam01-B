@@ -94,6 +94,20 @@ The greedy part is when we use those methods, which are checking one index with 
 
 COMPLEXITY : O(N^2) where N = |s|
 
+#### INPUT SAMPLES
+
+     INPUT: 
+     ((??))
+     
+     OUTPUT:
+     7
+    ----------------------
+     INPUT:
+     ((())()()???))
+     
+     OUTPUT:
+     21
+
 ### 2. Dynamic Programming
 Dynamic Programming is to breaking down an optimization problem into simples sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. In order solve this problem by using DP, we use memoization which ensures that a method doesn't run for the same inputs more than once by keeping a record of the results for the given inputs. 
 
