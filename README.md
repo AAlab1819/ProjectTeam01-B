@@ -34,7 +34,8 @@ In this particular case, we can conclude that there are 3 method in terms of fin
     - 'char=5' --> ((?)) --> odd chars --> not fulfilled
     Therefore, there are 2 fulfilled condition for condition number 1, which are when |s| is even. 
 2. Check one index with other index from left to right (encounter '(' and '?')
-
+    * notes : we use 2d array because we want to check one index with another index, which will explained below* 
+    
          for(int i = 0;i < len;i++)  // check one index
          {
           int cur = 0;
@@ -88,3 +89,5 @@ In this particular case, we can conclude that there are 3 method in terms of fin
     
 #### WHERE IS THE GREEDY PART? 
 The greedy part is when we use those methods, which are checking one index with another index from right to left and also from left to right to find the optimal solution, in terms, not reverses the decision. By looking at our algorithm, we can see that it never reverses the decision which fit the one of the greedy terms.
+
+COMPLEXITY : O(N^2) where N = |s|
