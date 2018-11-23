@@ -24,8 +24,8 @@ We are asked in this problem to output how many correct bracket sequence in a st
 
 ### 1. Greedy Algorithm
 One of the solution is to use greedy algorithm. Greedy algorithm means that always makes the choice that seems to be the best at that moment. The greedy algorithm has only one shot to compute the optimal solution so that it never goes back and reverses the decision
-In this particular case, we can conclude that there are 3 condition in terms of finding the correct bracket: 
-1. if |S| is even 
+In this particular case, we can conclude that there are 3 method in terms of finding the correct bracket: 
+1. |S| is even 
     example: ((?))
     - 'char=1' --> (   --> odd char --> not fulfilled 
     - 'char=2' --> ((  --> even chars --> fulfilled
@@ -33,5 +33,53 @@ In this particular case, we can conclude that there are 3 condition in terms of 
     - 'char=4' --> ((?) --> even chars --> fulfilled
     - 'char=5' --> ((?)) --> odd chars --> not fulfilled
     Therefore, there are 2 fulfilled condition for condition number 1, which are when |s| is even. 
-2. 
+2. Check one index with other index from left to right (encounter '(' and '?')
+
+         for(int i = 0;i < len;i++)  // check one index
+         {
+          int cur = 0;
+           for(int j = i;j < len;j++) { // with other index next to the first index that we check
+            if(s[j] == '(' || s[j] == '?') // if we find '(' bracket and '?' (since '?' could be consider as correct bracket)
+                                            //then the cur will be increase.
+            {
+                cur++;
+            }
+            else 
+            {
+            cur--;  
+            }
+            if(cur >= 0) 
+            {
+             vis[i][j]++;
+            }
+               else break; // if the cur is less than 0 than it did not meet the expectation of bracket that we desire in this                                      //particular method (for example: ")", "())", or "?))")
+            }
+         }
+         
+ * we use cur variable to save the changes and vis array to record the current "feasible" bracket. 
  
+ 3. Check the index with another index from right to left ( encounter ')' and '?') 
+    it is similiar to the second method, but the index is checked from right index to left index. 
+    Below is the code for this method.
+    
+        for(int i = len - 1;i >= 0;i--) {
+        int cur = 0;
+        for(int j = i;j >= 0;j--) {
+            if(s[j] == ')' || s[j] == '?') {
+                cur++;
+            } else {
+                cur--;
+            }
+            if(cur >= 0) vis[j][i]++;
+            else break;
+        }
+           }
+ 
+    
+            for(int i = 0;i < len;i++) {
+            for(int j = 0;j < len;j++) {
+            if((i + j) % 2 && vis[i][j] == 2) {
+                ans++;
+            }
+        }
+    }
