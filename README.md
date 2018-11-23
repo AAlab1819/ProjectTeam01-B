@@ -52,7 +52,7 @@ In this particular case, we can conclude that there are 3 method in terms of fin
             {
              vis[i][j]++;
             }
-               else break; // if the cur is less than 0 than it did not meet the expectation of bracket that we desire in this                                      //particular method (for example: ")", "())", or "?))")
+               else break; // if the cur is less than 0 than it did not meet the expectation of bracket that we desire in this  <br>                                    //particular method (for example: ")", "())", or "?))")
             }
          }
          
@@ -75,11 +75,16 @@ In this particular case, we can conclude that there are 3 method in terms of fin
         }
            }
  
-    
+ lastly, for the output: 
+ 
+ 
             for(int i = 0;i < len;i++) {
             for(int j = 0;j < len;j++) {
-            if((i + j) % 2 && vis[i][j] == 2) {
+            if((i + j) % 2 && vis[i][j] == 2) { /*if it's |S| equals to even, and the 'correct bracket' (vis[i][j]) is 2 as we                                                          already increase it from the code in 2nd and 3rd method, the ans will be increase to                                                     count the correct brackets.*/
                 ans++;
+                  }
+               }
             }
-        }
-    }
+    
+#### WHERE IS THE GREEDY PART? 
+The greedy part is when we use those methods, which are checking one index with another index from right to left and also from left to right to find the optimal solution, in terms, not reverses the decision. By looking at our algorithm, we can see that it never reverses the decision which fit the one of the greedy terms.
