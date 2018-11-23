@@ -9,6 +9,8 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 - Kayleen Priscilia 
 - Raysa Gohtami 
 
+## REQUIREMENT
+C++ 14
 
 ## Problem Explanation 
 A string consisting only of parentheses ('( and ')') is called bracket sequence. 
