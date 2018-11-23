@@ -38,10 +38,10 @@ In this particular case, we can conclude that there are 3 method in terms of fin
 2. Check one index with other index from left to right (encounter '(' and '?')
     * notes : we use 2d array because we want to check one index with another index, which will explained below* 
     
-         for(int i = 0;i < len;i++)  // check one index
-         {
-          int cur = 0;
-           for(int j = i;j < len;j++) { // with other index next to the first index that we check
+             for(int i = 0;i < len;i++)  // check one index
+             {
+            int cur = 0;
+            for(int j = i;j < len;j++) { // with other index next to the first index that we check
             if(s[j] == '(' || s[j] == '?') // if we find '(' bracket and '?' (since '?' could be consider as correct bracket)
                                             //then the cur will be increase.
             {
@@ -57,7 +57,7 @@ In this particular case, we can conclude that there are 3 method in terms of fin
             }
                else break; // if the cur is less than 0 than it did not meet the expectation of bracket that we desire in this  <br>                                    //particular method (for example: ")", "())", or "?))")
             }
-         }
+             }
          
  * we use cur variable to save the changes and vis array to record the current "feasible" bracket. 
  
