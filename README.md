@@ -3,6 +3,13 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 
 # [PROBLEM 917A - THE MONSTER](https://codeforces.com/problemset/problem/917/A)
 
+## CONTRIBUTOR 
+- Angellica 
+- Ariel Dimitri 
+- Kayleen Priscilia 
+- Raysa Gohtami 
+
+
 ## Problem Explanation 
 A string consisting only of parentheses ('( and ')') is called bracket sequence. 
 - Empty string is a correct bracket sequence
@@ -19,7 +26,12 @@ We are asked in this problem to output how many correct bracket sequence in a st
 One of the solution is to use greedy algorithm. Greedy algorithm means that always makes the choice that seems to be the best at that moment. The greedy algorithm has only one shot to compute the optimal solution so that it never goes back and reverses the decision
 In this particular case, we can conclude that there are 3 condition in terms of finding the correct bracket: 
 1. if |S| is even 
-    example: 
-    
-    ((?)) 
+    example: ((?))
+    - 'char=1' --> (   --> odd char --> not fulfilled 
+    - 'char=2' --> ((  --> even chars --> fulfilled
+    - 'char=3' --> ((? --> odd chars --> not fulfilled
+    - 'char=4' --> ((?) --> even chars --> fulfilled
+    - 'char=5' --> ((?)) --> odd chars --> not fulfilled
+    Therefore, there are 2 fulfilled condition for condition number 1, which are when |s| is even. 
+2. 
  
