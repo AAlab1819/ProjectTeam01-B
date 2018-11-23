@@ -3,13 +3,13 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 
 # [PROBLEM 917A - THE MONSTER](https://codeforces.com/problemset/problem/917/A)
 
-## CONTRIBUTOR 
+## TEAM MEMBERS
 - Angellica 
 - Ariel Dimitri 
 - Kayleen Priscilia 
 - Raysa Gohtami 
 
-## REQUIREMENT
+## PROGRAMMING LANGUAGE
 C++ 14
 
 ## Problem Explanation 
@@ -93,3 +93,43 @@ In this particular case, we can conclude that there are 3 method in terms of fin
 The greedy part is when we use those methods, which are checking one index with another index from right to left and also from left to right to find the optimal solution, in terms, not reverses the decision. By looking at our algorithm, we can see that it never reverses the decision which fit the one of the greedy terms.
 
 COMPLEXITY : O(N^2) where N = |s|
+
+### 2. Dynamic Programming
+Dynamic Programming is to breaking down an optimization problem into simples sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. In order solve this problem by using DP, we use memoization which ensures that a method doesn't run for the same inputs more than once by keeping a record of the results for the given inputs. 
+
+Memoization is used by using 'bool solve (int pos, int nopen)' and then 'temp' to store the calculation.
+So, the 'bool solve' function is to finds out if a certain substring can be a valid sequence of brackets. 
+
+        const char open='(',close=')';
+        string str;
+        int ans,e;
+        int DP[5005][5005];
+
+        bool solve(int pos,int nopen){
+        if (pos==e)
+            return nopen==0;
+        if (DP[pos][nopen]!=-1)
+            return DP[pos][nopen];
+        if (str[pos]==open)
+            return DP[pos][nopen]=solve(pos+1, nopen+1);
+        if (str[pos]==close)
+            return DP[pos][nopen]=nopen?solve(pos+1, nopen-1):false;
+        return DP[pos][nopen]=max(nopen?solve(pos+1, nopen-1):false,solve(pos+1, nopen+1));
+        }
+        
+Here is to output the amount of "correct bracket" in the inputted string. 
+
+    cin>>str;
+    for (int j=(int)str.size()-1; j>=0; j--) {
+        memset(DP, -1, sizeof(DP));
+        e=j+1;
+        for (int i=0; i<j; i++) ans+=solve(i, 0);
+    }
+    cout<<ans<<endl;
+    return 0;
+    }
+
+COMPLEXITY : O(N^4)
+
+### CONCLUSION 
+Greedy is better than DP for this problem if we see from the memory and time complexity. One of the reason is DP uses nested loops which make the time complexity become higher.
