@@ -13,14 +13,14 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 C++ 14
 
 ## Problem Explanation 
-A string consisting only of parentheses ('( and ')') is called bracket sequence. 
+A string consisting only of parentheses ('(' and ')') is called bracket sequence. 
 - Empty string is a correct bracket sequence
 - if s is a correct bracket sequence, then (s) is also a correct bracket sequence.
 - if s and t are correct bracket sequences, then st (concatenation of s and t) is also a correct bracket sequence
 
 A string consisting of parentheses and question marks ('?') is called pretty if and only if there's a way to replace each question mark with either '(' or ')' such that the resulting string is a non-empty correct bracket sequence.
 
-We are asked in this problem to output how many correct bracket sequence in a string input. 
+We are asked in this problem to output how many possible correct bracket sequence in a string input. 
 
 ## SOLUTION 
 
@@ -41,22 +41,22 @@ In this particular case, we can conclude that there are 3 methods in term of fin
              for(int i = 0; i < len; i++)  // checking one index
              {
             int cur = 0;
-            for(int j = i; j < len; j++) { // with the index next to the first index that we check
+            for(int j = i; j < len; j++) { // with the index next to the first index that we checked
             if(s[j] == '(' || s[j] == '?') // if we find '(' bracket and '?' (since '?' could be consider as correct bracket)
                                             //then the cur will be increase.
-            {
-                cur++;
-            }
+                {
+                    cur++;
+                }
             else 
-            {
-            cur--;  
-            }
+                {
+                    cur--;  
+                }
             if(cur >= 0) 
-            {
-             vis[i][j]++;
-            }
-               else break; // if the cur is less than 0 than it did not meet the expectation of bracket that we desire in this  <br>                                    //particular method (for example: ")", "())", or "?))")
-            }
+                {
+                    vis[i][j]++;
+                }
+             else break; // if cur is less than 0 then it did not meet the expectation of bracket that we desire in this  <br>                                    //particular method (for example: ")", "())", or "?))")
+               }
              }
          
  * we use cur variable to save the changes and vis array to record the current "feasible" bracket. 
@@ -90,7 +90,7 @@ In this particular case, we can conclude that there are 3 methods in term of fin
           }
     
 #### WHERE IS THE GREEDY PART? 
-The greedy part is when we use those methods, which are checking one index with another index from right to left and also from left to right to find the optimal solution, in terms, not reverses the decision. By looking at our algorithm, we can see that it never reverses the decision which fit the one of the greedy terms.
+The greedy part is when we check one index with another index from right to left and also from left to right to find the optimal solution, in terms, not reverses the decision. By looking at our algorithm, we can see that it never reverses the decision which fit the one of the greedy terms.
 
 COMPLEXITY : O(N^2) where N = |s|
 
@@ -99,7 +99,7 @@ COMPLEXITY : O(N^2) where N = |s|
 ![GREEDY](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/greedy%20monster.PNG)
 
 ### 2. Dynamic Programming
-Dynamic Programming is to breaking down an optimization problem into simples sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. In order solve this problem by using DP, we use memoization which ensures that a method doesn't run for the same inputs more than once by keeping a record of the results for the given inputs. 
+Dynamic Programming is breaking down an optimization problem into simple sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. In order solve this problem by using DP, we use memoization which ensures that a method doesn't run for the same inputs more than once by keeping a record of the results for the given inputs. 
 
 Memoization is used by using 'bool solve (int pos, int nopen)' and then 'temp' to store the calculation.
 So, the 'bool solve' function is to finds out if a certain substring can be a valid sequence of brackets. 
@@ -136,11 +136,11 @@ Here is to output the amount of "correct bracket" in the inputted string.
 COMPLEXITY : O(N^4)
 
 #### WHERE IS THE DP PART? 
-The DP part is when we use 'bool solve' function for the memoization, to store the calculation so that it keeps the records of the results and does not run the same inputs more than once. So it is 'supposedly' should save time. 
+The DP part is when we use 'bool solve' function for the memoization, to store the calculation so that it keeps the records of the results and does not run the same input more than once. So it 'supposedly' should save time. 
 
 #### INPUT SAMPLES
 ![DP](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/monster%20dp.PNG)
 ### CONCLUSION 
-Greedy is better than DP for this problem if we see from the memory and time complexity. One of the reason is DP uses nested loops which make the time complexity become higher. As we can see from the complexity of both techniques: 
+Greedy is better than DP for this problem if we compare them from memory and time complexity. One of the reason is DP uses nested loops which make the time complexity become higher. As we can see from the complexity of both techniques: 
 - DP = O(N^4) 
 - Greedy = O(N^2)
