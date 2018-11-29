@@ -12,19 +12,16 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 ## PROGRAMMING LANGUAGE
 C++ 14
 
-## Problem Explanation 
-A string consisting only of parentheses ('(' and ')') is called bracket sequence. 
+## PROBLEM STATEMENT
+   The problem that is needed to be solve is Problem 917A named The Monster. In this problem, user inputs a string consisting only of parentheses ('(' and ')') that is called bracked sequence. Some bracket sequence are called correct bracket sequences, if:
 - Empty string is a correct bracket sequence
 - if s is a correct bracket sequence, then (s) is also a correct bracket sequence.
-- if s and t are correct bracket sequences, then st (concatenation of s and t) is also a correct bracket sequence
+- if s and t are correct bracket sequences, then 'st' (concatenation of s and t) is also a correct bracket sequence
+    A string consisting of parentheses and question marks ('?') is called pretty if and only if there's a way to replace each question mark with either '(' or ')' such that the resulting string is a non-empty correct bracket sequence. We are asked in this problem to output how many possible correct bracket sequence in a string input. 
+    To solve this problem, the time complexity and memory allocation must be considered in terms on creating a good and efficient algorithm.
 
-A string consisting of parentheses and question marks ('?') is called pretty if and only if there's a way to replace each question mark with either '(' or ')' such that the resulting string is a non-empty correct bracket sequence.
-
-We are asked in this problem to output how many possible correct bracket sequence in a string input. 
-
-## SOLUTION 
-
-### 1. Greedy Algorithm
+## GREEDY ALGORITHM
+### THOUGHT PROCESS
 One of the solution is to use greedy algorithm. Greedy algorithm is the one that always makes the choice that seems to be the best at that moment. The greedy algorithm has only one shot to compute the optimal solution so that it can never goes back and reverses the decision.
 In this particular case, we can conclude that there are 3 methods in term of finding the correct bracket: 
 1. |S| is even 
@@ -88,17 +85,16 @@ In this particular case, we can conclude that there are 3 methods in term of fin
                 }
              }
           }
-    
-#### WHERE IS THE GREEDY PART? 
+ 
 The greedy part is when we check one index with another index from right to left and also from left to right to find the optimal solution, in terms, not reverses the decision. By looking at our algorithm, we can see that it never reverses the decision which fit the one of the greedy terms.
-
-COMPLEXITY : O(N^2) where N = |s|
-
+ 
+**COMPLEXITY : O(N^2) where N = |s|**
+ 
 #### INPUT SAMPLES
 
 ![GREEDY](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/greedy%20monster.PNG)
 
-### 2. Dynamic Programming
+## DYNAMIC PROGRAMMING
 Dynamic Programming is breaking down an optimization problem into simple sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. In order solve this problem by using DP, we use memoization which ensures that a method doesn't run for the same inputs more than once by keeping a record of the results for the given inputs. 
 
 Memoization is used by using 'bool solve (int pos, int nopen)' and then 'temp' to store the calculation.
@@ -133,10 +129,8 @@ Here is to output the amount of "correct bracket" in the inputted string.
         return 0;
         }
 
-COMPLEXITY : O(N^4)
-
-#### WHERE IS THE DP PART? 
 The DP part is when we use 'bool solve' function for the memoization, to store the calculation so that it keeps the records of the results and does not run the same input more than once. So it 'supposedly' should save time. 
+COMPLEXITY : O(N^4)
 
 #### INPUT SAMPLES
 ![DP](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/monster%20dp.PNG)
