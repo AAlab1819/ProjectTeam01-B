@@ -135,7 +135,14 @@ COMPLEXITY : O(N^4)
 
 #### INPUT SAMPLES
 ![DP](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/monster%20dp.PNG)
-### CONCLUSION 
+
+## COMPARISON 
+Input:  |   ((?))  |  4  |  4  | ok 1 number(s):”4” 
+Greedy: |   46ms   |   46ms   |   78ms   |  389ms  |  529ms   |    498ms   |
+DP:     |   0ms   |   4ms   |   7ms   |  21ms  |  TLE   |    TLE   |
+
+## CONCLUSION 
+
 Greedy is better than DP for this problem if we compare them from memory and time complexity. One of the reason is DP uses nested loops which make the time complexity become higher. As we can see from the complexity of both techniques: 
 - DP = O(N^4) 
 - Greedy = O(N^2)
