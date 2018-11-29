@@ -25,23 +25,23 @@ We are asked in this problem to output how many correct bracket sequence in a st
 ## SOLUTION 
 
 ### 1. Greedy Algorithm
-One of the solution is to use greedy algorithm. Greedy algorithm means that always makes the choice that seems to be the best at that moment. The greedy algorithm has only one shot to compute the optimal solution so that it never goes back and reverses the decision
-In this particular case, we can conclude that there are 3 method in terms of finding the correct bracket: 
+One of the solution is to use greedy algorithm. Greedy algorithm is the one that always makes the choice that seems to be the best at that moment. The greedy algorithm has only one shot to compute the optimal solution so that it can never goes back and reverses the decision.
+In this particular case, we can conclude that there are 3 methods in term of finding the correct bracket: 
 1. |S| is even 
     example: ((?))
-    - 'char=1' --> (   --> odd char --> not fulfilled 
+    - 'char=1' --> (   --> odd char --> not fulfilled
     - 'char=2' --> ((  --> even chars --> fulfilled
     - 'char=3' --> ((? --> odd chars --> not fulfilled
     - 'char=4' --> ((?) --> even chars --> fulfilled
     - 'char=5' --> ((?)) --> odd chars --> not fulfilled
     Therefore, there are 2 fulfilled condition for condition number 1, which are when |s| is even. 
 2. Check one index with other index from left to right (encounter '(' and '?')
-    * notes : we use 2d array because we want to check one index with another index, which will explained below* 
+    * notes : we use 2 dimensional array because we want to check one index with another index, which will be explained below* 
     
-             for(int i = 0;i < len;i++)  // check one index
+             for(int i = 0; i < len; i++)  // checking one index
              {
             int cur = 0;
-            for(int j = i;j < len;j++) { // with other index next to the first index that we check
+            for(int j = i; j < len; j++) { // with the index next to the first index that we check
             if(s[j] == '(' || s[j] == '?') // if we find '(' bracket and '?' (since '?' could be consider as correct bracket)
                                             //then the cur will be increase.
             {
