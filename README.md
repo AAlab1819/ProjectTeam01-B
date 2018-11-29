@@ -4,10 +4,10 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 # [PROBLEM 917A - THE MONSTER](https://codeforces.com/problemset/problem/917/A)
 
 ## TEAM MEMBERS
-- Angellica 
-- Ariel Dimitri 
-- Kayleen Priscilia 
-- Raysa Gohtami 
+* Angellica 
+* Ariel Dimitri 
+* Kayleen Priscilia 
+* Raysa Gohtami 
 
 ## PROGRAMMING LANGUAGE
 C++ 14
@@ -17,14 +17,16 @@ C++ 14
 - Empty string is a correct bracket sequence
 - if s is a correct bracket sequence, then (s) is also a correct bracket sequence.
 - if s and t are correct bracket sequences, then 'st' (concatenation of s and t) is also a correct bracket sequence
-    A string consisting of parentheses and question marks ('?') is called pretty if and only if there's a way to replace each question mark with either '(' or ')' such that the resulting string is a non-empty correct bracket sequence. We are asked in this problem to output how many possible correct bracket sequence in a string input. 
+   
+   A string consisting of parentheses and question marks ('?') is called pretty if and only if there's a way to replace each question mark with either '(' or ')' such that the resulting string is a non-empty correct bracket sequence. We are asked in this problem to output how many possible correct bracket sequence in a string input. 
+   
     To solve this problem, the time complexity and memory allocation must be considered in terms on creating a good and efficient algorithm.
 
 ## GREEDY ALGORITHM
 ### THOUGHT PROCESS
 One of the solution is to use greedy algorithm. Greedy algorithm is the one that always makes the choice that seems to be the best at that moment. The greedy algorithm has only one shot to compute the optimal solution so that it can never goes back and reverses the decision.
 In this particular case, we can conclude that there are 3 methods in term of finding the correct bracket: 
-1. |S| is even 
+1. |S| must be even 
     example: ((?))
     - 'char=1' --> (   --> odd char --> not fulfilled
     - 'char=2' --> ((  --> even chars --> fulfilled
@@ -32,8 +34,7 @@ In this particular case, we can conclude that there are 3 methods in term of fin
     - 'char=4' --> ((?) --> even chars --> fulfilled
     - 'char=5' --> ((?)) --> odd chars --> not fulfilled
     Therefore, there are 2 fulfilled condition for condition number 1, which are when |s| is even. 
-2. Check one index with other index from left to right (encounter '(' and '?')
-    * notes : we use 2 dimensional array because we want to check one index with another index, which will be explained below* 
+2. Check one index with other index from left to right (encounter '(' and '?'). 2 dimensional array is used because we want to check one index with another index. 
     
              for(int i = 0; i < len; i++)  // checking one index
              {
