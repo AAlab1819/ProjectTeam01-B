@@ -137,8 +137,9 @@ COMPLEXITY : O(N^4)
 ![DP](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/monster%20dp.PNG)
 
 ## COMPARISON 
+
 | Input            |  Greedy | Dynamic Programming |
-:---                   :---:       ---:
+:---                  :---:       ---:
 |((?)              |  46ms   | 0ms                 | 
 |4                 |  46ms   | 4ms                 | 
 |4                 |  78ms   | 7ms                 | 
