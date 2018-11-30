@@ -130,7 +130,11 @@ The greedy part is when we check one index with another index from right to left
  
 **TIME COMPLEXITY   : O(N^2) where N = |s|** | **MEMORY ALLOCATION : 0 (Insignificantly small)**
 
+## DYNAMIC PROGRAMMING
+Dynamic Programming is breaking down an optimization problem into simple sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. In order solve this problem by using DP, we use memoization which ensures that a method doesn't run for the same inputs more than once by keeping a record of the results for the given inputs. 
 
+Memoization is used by using `bool solve (int pos, int nopen)` and then `temp` to store the calculation.
+So, the `bool solve` function is to finds out if a certain substring can be a valid sequence of brackets. 
 
         const char open='(',close=')';
         string str;
@@ -161,7 +165,7 @@ Here is to output the amount of "correct bracket" in the inputted string.
         return 0;
         }
 
-The DP part is when we use 'bool solve' function for the memoization, to store the calculation so that it keeps the records of the results and does not run the same input more than once. So it 'supposedly' should save time. The memory allocation of greedy is also significantly less than DP as DP require the creation of array with size of n, where n may be a number as big as 10^9.
+The DP part is when we use 'bool solve' function for the memoization, which is the optimization technique to store the calculation so they don't need to be recalculated. So it 'supposedly' should save time. But, as we can see, the time complexity is not as efficient as we expected to be. 
 
 **TIME COMPLEXITY   : O(N^4)** | **MEMORY ALLOCATION : 0<=k<=10^9**
 
@@ -175,7 +179,7 @@ The DP part is when we use 'bool solve' function for the memoization, to store t
 
  ## CONCLUSION
  
-Greedy is better than DP for this problem in terms on memory and time complexity. One of the reason is that because DP uses nested loops which make the time complexity higher. As we can see from the complexity of both techniques: 
+Greedy is better than DP for this problem in terms on memory and time complexity. One of the reason is that because DP uses nested loops which make the time complexity higher. The memory allocation of greedy is also significantly less than DP as DP require the creation of array with size of n, where n may be a number as big as 10^9.As we can see from the complexity of both techniques: 
 - TIME COMPLEXITY:
    - DP = O(N^4) 
    - Greedy = O(N^2)
