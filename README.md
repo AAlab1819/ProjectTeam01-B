@@ -6,7 +6,7 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 
 ## TEAM MEMBERS
 * Angellica 
-* Ariel Dimitri 
+* Ariel Dimitri Alejandro
 * Kayleen Priscilia 
 * Raysa Gohtami 
 
