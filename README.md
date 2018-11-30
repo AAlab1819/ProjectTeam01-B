@@ -7,8 +7,8 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 ## TEAM MEMBERS
 * Angellica 
 * Ariel Dimitri 
-* Kayleen Priscilia
-* Raysa Gohtami
+* Kayleen Priscilia 
+* Raysa Gohtami 
 
 ## PROGRAMMING LANGUAGE
 C++ 14
@@ -18,9 +18,41 @@ C++ 14
  ![Problem 2](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20second.PNG)
  ![Problem 3](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20third.PNG)
    
-To solve this problem, the time complexity and memory allocation must be considered in terms on creating a good and efficient algorithm. Therefore we use greedy and dynamic programming approach to find which algorithm is better and more efficient. 
+To solve this problem, the time complexity and memory allocation must be considered in terms on creating a good and efficient algorithm. Therefore we use greedy and dynamic programming approach to compare which algorithm is better and more efficient. 
+
+## INPUT/OUTPUT SAMPLES
+
+### Sample #1 
+__input__ 
+```
+(?))))?(
+```
+
+__output__
+```
+3
+```
+### Sample #2
+__input__
+```
+(???((()))?)
+```
+__output__
+```
+15
+```
+### Sample #3
+__input__
+```
+())??()(?()
+```
+__output__
+```
+11
+```
 
 ## GREEDY ALGORITHM
+
 ### THOUGHT PROCESS
 One of the solution is to use greedy algorithm. Greedy algorithm is the one that always makes the choice that seems to be the best at that moment. The greedy algorithm has only one shot to compute the optimal solution so that it can never goes back and reverses the decision.
 In this particular case, we can conclude that there are 3 methods in term of finding the correct bracket: 
@@ -31,12 +63,12 @@ In this particular case, we can conclude that there are 3 methods in term of fin
     - |S| = 1 --> `(`  (not fulfilled)
     - |S| = 1 --> `?`  (not fulfilled)
     - (to be continued)
-  
-    -|S| = 2 --> `((`  (fulfilled)
+    
+    - |S| = 2 --> `((`  (fulfilled)
     - |S| = 2 --> `(?`  (fulfilled)
     - |S| = 2 --> `?)`  (fulfilled)
     - |S| = 2 --> `))`  (fulfilled)
-   
+     
     - |S| = 3 --> `((?`  (not fulfilled)
     - |S| = 3 --> `(?)`  (not fulfilled)
     - |S| = 3 --> `?))`  (not fulfilled)
@@ -44,7 +76,7 @@ In this particular case, we can conclude that there are 3 methods in term of fin
     - |S| = 4 --> `((?)` (fulfilled)
     - |S| = 4 --> `(?))` (fulfilled)
     
-    - |S| = 5 --> ((?)) (not fulfilled)
+    - |S| = 5 --> `((?))` (not fulfilled)
      
 2. Check one index with other index from left to right (encounter '(' and '?'). 2 dimensional array is used because we want to check one index with another index. Therefore to achieve this method, we use 'for' looping. 'cur' variable to save the changes and 'vis' array to record the current "feasible" bracket.
 
@@ -100,8 +132,7 @@ In this particular case, we can conclude that there are 3 methods in term of fin
  
 The greedy part is when we check one index with another index from right to left and also from left to right to find the optimal solution, in terms, not reverses the decision. By looking at our algorithm, we can see that it never reverses the decision which fit the one of the greedy terms.
  
-**TIME COMPLEXITY   : O(N^2) where N = |s|**
-**MEMORY ALLOCATION : 0 (Insignificantly small)**
+**TIME COMPLEXITY   : O(N^2) where N = |s|** | **MEMORY ALLOCATION : 0 (Insignificantly small)**
 
 ## DYNAMIC PROGRAMMING
 Dynamic Programming is breaking down an optimization problem into simple sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. In order solve this problem by using DP, we use memoization which ensures that a method doesn't run for the same inputs more than once by keeping a record of the results for the given inputs. 
@@ -138,11 +169,11 @@ Here is to output the amount of "correct bracket" in the inputted string.
         return 0;
         }
 
-The DP part is when we use 'bool solve' function for the memoization, to store the calculation so that it keeps the records of the results and does not run the same input more than once. So it 'supposedly' should save time. 
--**TIME COMPLEXITY   : O(N^2)**
--**MEMORY ALLOCATION : 0<=k<=10^9**
+The DP part is when we use 'bool solve' function for the memoization, to store the calculation so that it keeps the records of the results and does not run the same input more than once. So it 'supposedly' should save time. The memory allocation of greedy is also significantly less than DP as DP require the creation of array with size of n, where n may be a number as big as 10^9.
 
-## INPUT SAMPLES X COMPARISON x CONCLUSION
+**TIME COMPLEXITY   : O(N^4)** | **MEMORY ALLOCATION : 0<=k<=10^9**
+
+## COMPARISON 
 
 |   __Input__             |    ((?))     | ()?)()()??()())( | ((()))()()??()()???)()(()())?)(?) | ()?(???(?(????????????(??((???(???....|
 | ----------------------- | :----------: | :--------------: | :-------------------------------: | :---------------------------------: |
@@ -150,7 +181,12 @@ The DP part is when we use 'bool solve' function for the memoization, to store t
 |   __Greedy__            |    0.001 s   | 0.00099 s        | 0.002 s                           | 0.12 s                              |
 | __Dynamic Programming__ |    0.157 s   | 0.327 s          | 0.636 s                           | TLE                                 |
 
+ ## CONCLUSION
  
 Greedy is better than DP for this problem if we compare them from memory and time complexity. One of the reason is that because DP uses nested loops which make the time complexity higher. As we can see from the complexity of both techniques: 
-- DP = O(N^2) 
-- Greedy = O(N^2)
+- TIME COMPLEXITY:
+   - DP = O(N^4) 
+   - Greedy = O(N^2)
+- MEMORY ALLOCATION:
+   - DP = 0<=k<=10^9
+   - Greedy = 0
