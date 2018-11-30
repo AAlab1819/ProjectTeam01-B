@@ -11,7 +11,11 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 * Raysa Gohtami 
 
 ## PROGRAMMING LANGUAGE
-C++ 14
+C++11
+
+## INSTALLATION/RUNNING INSTRUCTIONS:
+* Install TDMGCC and change compiler settings to be using TDMGCC
+* Compile and execute the source code that can be found in this repository using GNU G++11 5.1.0
 
 ## PROBLEM STATEMENT
  ![Problem 1](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20first.PNG)
