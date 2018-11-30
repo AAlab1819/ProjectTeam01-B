@@ -185,4 +185,4 @@ Greedy is better than DP for this problem in terms on memory and time complexity
    - Greedy = O(N^2)
 - MEMORY ALLOCATION:
    - DP = 0<=k<=10^9
-   - Greedy = 0
+   - Greedy = 0.
