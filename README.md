@@ -7,8 +7,8 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 ## TEAM MEMBERS
 * Angellica 
 * Ariel Dimitri 
-* Kayleen Priscilia 
-* Raysa Gohtami 
+* Kayleen Priscilia
+* Raysa Gohtami
 
 ## PROGRAMMING LANGUAGE
 C++ 14
