@@ -27,24 +27,24 @@ In this particular case, we can conclude that there are 3 methods in term of fin
 
 1. |S| must be even. |S| is number of chars in a string that is/are currently checked. 
     Example: ((?))
-    - |S| = 1 --> (  <not fulfilled> 
-    - |S| = 1 --> (  <not fulfilled>
-    - |S| = 1 --> ?  <not fulfilled>
-    -(to be continued)
+    - |S| = 1 --> `(`  (not fulfilled)
+    - |S| = 1 --> `(`  (not fulfilled)
+    - |S| = 1 --> `?`  (not fulfilled)
+    - (to be continued)
+  
+    -|S| = 2 --> `((`  (fulfilled)
+    - |S| = 2 --> `(?`  (fulfilled)
+    - |S| = 2 --> `?)`  (fulfilled)
+    - |S| = 2 --> `))`  (fulfilled)
    
-    - |S| = 2 --> ((  <fulfilled>
-    - |S| = 2 --> (?  <fulfilled>
-    - |S| = 2 --> ?)  <fulfilled>
-    - |S| = 2 --> ))  <fulfilled>
+    - |S| = 3 --> `((?`  (not fulfilled)
+    - |S| = 3 --> `(?)`  (not fulfilled)
+    - |S| = 3 --> `?))`  (not fulfilled)
    
-    - |S| = 3 --> ((?  <not fulfilled>
-    - |S| = 3 --> (?)  <not fulfilled>
-    - |S| = 3 --> ?))  <not fulfilled>
-   
-    - |S| = 4 --> ((?) <fulfilled>
-    - |S| = 4 --> (?)) <fulfilled>
+    - |S| = 4 --> `((?)` (fulfilled)
+    - |S| = 4 --> `(?))` (fulfilled)
     
-    - |S| = 5 --> ((?)) <not fulfilled> 
+    - |S| = 5 --> ((?)) (not fulfilled)
      
 2. Check one index with other index from left to right (encounter '(' and '?'). 2 dimensional array is used because we want to check one index with another index. Therefore to achieve this method, we use 'for' looping. 'cur' variable to save the changes and 'vis' array to record the current "feasible" bracket.
 
