@@ -14,14 +14,11 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 C++ 14
 
 ## PROBLEM STATEMENT
-   The problem that is needed to be solve is Problem 917A named The Monster. In this problem, user inputs a string consisting only of parentheses ('(' and ')') that is called bracked sequence. Some bracket sequence are called correct bracket sequences, if:
-- Empty string is a correct bracket sequence
-- if s is a correct bracket sequence, then (s) is also a correct bracket sequence.
-- if s and t are correct bracket sequences, then 'st' (concatenation of s and t) is also a correct bracket sequence
+ ![Problem 1](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20(1).PNG)
+ ![Problem 2](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20(2).PNG)
+ ![Problem 3](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20(3).PNG)
    
-   A string consisting of parentheses and question marks ('?') is called pretty if and only if there's a way to replace each question mark with either '(' or ')' such that the resulting string is a non-empty correct bracket sequence. We are asked in this problem to output how many possible correct bracket sequence in a string input. 
-   
-    To solve this problem, the time complexity and memory allocation must be considered in terms on creating a good and efficient algorithm. Therefore we use greedy and dynamic programming approach to find which algorithm is better and more efficient. 
+To solve this problem, the time complexity and memory allocation must be considered in terms on creating a good and efficient algorithm. Therefore we use greedy and dynamic programming approach to find which algorithm is better and more efficient. 
 
 ## GREEDY ALGORITHM
 ### THOUGHT PROCESS
