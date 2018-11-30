@@ -78,14 +78,13 @@ In this particular case, we can conclude that there are 3 methods in term of fin
     
     - |S| = 5 --> `((?))` (not fulfilled)
      
-2. Check one index with other index from left to right (encounter '(' and '?'). 2 dimensional array is used because we want to check one index with another index. Therefore to achieve this method, we use 'for' looping. 'cur' variable to save the changes and 'vis' array to record the current "feasible" bracket.
+2. Check one index with other index from left to right (encounter '(' and '?'). 2 dimensional array is used because we want to check one index with another index. Therefore to achieve this method, we use 'for' looping to check one index with another. 'cur' variable to save the changes and 'vis' array to record the current "feasible" bracket. If we find `(` bracket and `?` (since `?` could be considers as correct bracket, then the `cur` will be increased. Else, if `cur` is less than 0, then it did not meet the expetation of the bracket that we desire in this particular method (for example: ")", "())", or "?))" ) it will breaks.
 
-         for(int i = 0; i < len; i++)  // checking one index
+         for(int i = 0; i < len; i++) 
          {
             int cur = 0;
-            for(int j = i; j < len; j++) { // with the index next to the first index that we checked
-            if(s[j] == '(' || s[j] == '?') // if we find '(' bracket and '?' (since '?' could be consider as correct bracket)
-                                            //then the cur will be increase.
+            for(int j = i; j < len; j++) { 
+            if(s[j] == '(' || s[j] == '?')                             
                 {
                     cur++;
                 }
@@ -97,14 +96,12 @@ In this particular case, we can conclude that there are 3 methods in term of fin
                 {
                     vis[i][j]++;
                 }
-             else break; // if cur is less than 0 then it did not meet the expectation of bracket that we desire in this  <br>                                    //particular method (for example: ")", "())", or "?))")
+             else break;                               
                }
            }
          
  
- 3. Check the index with another index from right to left ( encounter ')' and '?') 
-    it is similiar to the second method, but the index is checked from right index to left index. 
-    Below is the code for this method.
+ 3. Check the index with another index from right to left ( encounter ')' and '?'). It is similiar to the second method, but the index is checked from right index to left index. Below is the code for this method.
     
         for(int i = len - 1;i >= 0;i--) {
         int cur = 0;
@@ -119,12 +116,11 @@ In this particular case, we can conclude that there are 3 methods in term of fin
         }
            }
  
- lastly, for the output: 
+Lastly, for the output. If the `|S|` equals to even, and the 'correct bracket' `vis[i][j]` is 2 as we already increase it from the code in 2nd and 3rd method, the `ans` will be increase to count the correct brackets.
  
           for(int i = 0;i < len;i++) {
           for(int j = 0;j < len;j++) {
-          if((i + j) % 2 && vis[i][j] == 2) { /*if it's |S| equals to even, and the 'correct bracket' (vis[i][j]) is 2 as we
-                                                already increase it from the code in 2nd and 3rd method, the ans will be increase to                                                     count the correct brackets.*/
+          if((i + j) % 2 && vis[i][j] == 2) { 
              ans++;
                 }
              }
@@ -183,7 +179,7 @@ The DP part is when we use 'bool solve' function for the memoization, to store t
 
  ## CONCLUSION
  
-Greedy is better than DP for this problem if we compare them from memory and time complexity. One of the reason is that because DP uses nested loops which make the time complexity higher. As we can see from the complexity of both techniques: 
+Greedy is better than DP for this problem in terms on memory and time complexity. One of the reason is that because DP uses nested loops which make the time complexity higher. As we can see from the complexity of both techniques: 
 - TIME COMPLEXITY:
    - DP = O(N^4) 
    - Greedy = O(N^2)
