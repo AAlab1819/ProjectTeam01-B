@@ -14,9 +14,9 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 C++ 14
 
 ## PROBLEM STATEMENT
- ![Problem 1](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20(1).PNG)
- ![Problem 2](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20(2).PNG)
- ![Problem 3](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20(3).PNG)
+ ![Problem 1](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20first.PNG)
+ ![Problem 2](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20second.PNG)
+ ![Problem 3](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20third.PNG)
    
 To solve this problem, the time complexity and memory allocation must be considered in terms on creating a good and efficient algorithm. Therefore we use greedy and dynamic programming approach to find which algorithm is better and more efficient. 
 
