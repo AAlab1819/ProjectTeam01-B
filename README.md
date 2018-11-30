@@ -6,7 +6,7 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 
 ## TEAM MEMBERS
 * Angellica 
-* Ariel Dimitri Alejandro
+* Ariel Dimitri 
 * Kayleen Priscilia 
 * Raysa Gohtami 
 
@@ -14,9 +14,9 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 C++ 14
 
 ## PROBLEM STATEMENT
- ![Problem 1](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20(1).PNG)
- ![Problem 2](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20(2).PNG)
- ![Problem 3](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20(3).PNG)
+ ![Problem 1](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20first.PNG)
+ ![Problem 2](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20second.PNG)
+ ![Problem 3](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20third.PNG)
    
 To solve this problem, the time complexity and memory allocation must be considered in terms on creating a good and efficient algorithm. Therefore we use greedy and dynamic programming approach to find which algorithm is better and more efficient. 
 
@@ -100,12 +100,13 @@ In this particular case, we can conclude that there are 3 methods in term of fin
  
 The greedy part is when we check one index with another index from right to left and also from left to right to find the optimal solution, in terms, not reverses the decision. By looking at our algorithm, we can see that it never reverses the decision which fit the one of the greedy terms.
  
-**COMPLEXITY : O(N^2) where N = |s|**
+**TIME COMPLEXITY   : O(N^2) where N = |s|**
+**MEMORY ALLOCATION : 0 (Insignificantly small)**
 
 ## DYNAMIC PROGRAMMING
 Dynamic Programming is breaking down an optimization problem into simple sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. In order solve this problem by using DP, we use memoization which ensures that a method doesn't run for the same inputs more than once by keeping a record of the results for the given inputs. 
 
-Memoization is used by using 'bool solve (int pos,int nopen)' and then 'temp' to store the calculation.
+Memoization is used by using 'bool solve (int pos, int nopen)' and then 'temp' to store the calculation.
 So, the 'bool solve' function is to finds out if a certain substring can be a valid sequence of brackets. 
 
         const char open='(',close=')';
@@ -138,7 +139,8 @@ Here is to output the amount of "correct bracket" in the inputted string.
         }
 
 The DP part is when we use 'bool solve' function for the memoization, to store the calculation so that it keeps the records of the results and does not run the same input more than once. So it 'supposedly' should save time. 
-COMPLEXITY : O(N^4)
+-**TIME COMPLEXITY   : O(N^2)**
+-**MEMORY ALLOCATION : 0<=k<=10^9**
 
 ## INPUT SAMPLES X COMPARISON x CONCLUSION
 
@@ -150,5 +152,5 @@ COMPLEXITY : O(N^4)
 
  
 Greedy is better than DP for this problem if we compare them from memory and time complexity. One of the reason is that because DP uses nested loops which make the time complexity higher. As we can see from the complexity of both techniques: 
-- DP = O(N^4) 
+- DP = O(N^2) 
 - Greedy = O(N^2)
