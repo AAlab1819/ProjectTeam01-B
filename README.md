@@ -17,8 +17,8 @@ C++ 14
  ![Problem 1](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20first.PNG)
  ![Problem 2](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20second.PNG)
  ![Problem 3](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20third.PNG)
-   
-To solve this problem, the time complexity and memory allocation must be considered in terms on creating a good and efficient algorithm. Therefore we use greedy and dynamic programming approach to compare which algorithm is better and more efficient. 
+
+Basically, to solve this problem, we must find the "correct brackets" in a string. Hence, the time complexity and memory allocation must be considered in terms on creating a good and efficient algorithm. Therefore we use greedy and dynamic programming approach to compare which algorithm is better and more efficient. 
 
 ## INPUT/OUTPUT SAMPLES
 
@@ -54,7 +54,7 @@ __output__
 ## GREEDY ALGORITHM
 
 ### THOUGHT PROCESS
-One of the solution is to use greedy algorithm. Greedy algorithm is the one that always makes the choice that seems to be the best at that moment. The greedy algorithm has only one shot to compute the optimal solution so that it can never goes back and reverses the decision.
+One of the solution is to use greedy algorithm. Greedy algorithm is the one that always makes the choice that seems to be the best at that moment. The greedy algorithm has only one shot to compute the optimal solution so that it can never goes back and reverses the decision. 
 In this particular case, we can conclude that there are 3 methods in term of finding the correct bracket: 
 
 1. |S| must be even. |S| is number of chars in a string that is/are currently checked. 
@@ -78,7 +78,7 @@ In this particular case, we can conclude that there are 3 methods in term of fin
     
     - |S| = 5 --> `((?))` (not fulfilled)
      
-2. Check one index with other index from left to right (encounter '(' and '?'). 2 dimensional array is used because we want to check one index with another index. Therefore to achieve this method, we use 'for' looping to check one index with another. 'cur' variable to save the changes and 'vis' array to record the current "feasible" bracket. If we find `(` bracket and `?` (since `?` could be considers as correct bracket, then the `cur` will be increased. Else, if `cur` is less than 0, then it did not meet the expetation of the bracket that we desire in this particular method (for example: ")", "())", or "?))" ) it will breaks.
+2. if 0 ≤ s[1..i].count('(') + s[1..i].count('?') - s[1..i].count(')') for each 1 ≤ i ≤ |s|. Therefore, we must check one index with other index from left to right (encounter '(' and '?'). 2 dimensional array is used because we want to check one index with another index. Therefore to achieve this method, we use 'for' looping to check one index with another. 'cur' variable to save the changes and 'vis' array to record the current "feasible" bracket. If we find `(` bracket and `?` (since `?` could be considers as correct bracket, then the `cur` will be increased. Else, if `cur` is less than 0, then it did not meet the expetation of the bracket that we desire in this particular method (for example: ")", "())", or "?))" ) it will breaks.
 
          for(int i = 0; i < len; i++) 
          {
@@ -101,7 +101,7 @@ In this particular case, we can conclude that there are 3 methods in term of fin
            }
          
  
- 3. Check the index with another index from right to left ( encounter ')' and '?'). It is similiar to the second method, but the index is checked from right index to left index. Below is the code for this method.
+ 3. 0 ≤ s[i..|s|].count(')') + s[i..|s|].count('?') - s[i..|s|].count('(') for each 1 ≤ i ≤ |s|. Check the index with another index from right to left ( encounter ')' and '?'). It is similiar to the second method, but the index is checked from right index to left index. Below is the code for this method.
     
         for(int i = len - 1;i >= 0;i--) {
         int cur = 0;
