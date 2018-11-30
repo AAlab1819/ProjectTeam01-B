@@ -144,14 +144,15 @@ COMPLEXITY : O(N^4)
 
 ## INPUT SAMPLES X COMPARISON x CONCLUSION
 
-| Input           | Output  |  Greedy | Dynamic Programming |
----                                ---            ---
-|((?))            |    4    | 0.001 s   | 0.157 s   | 
-|()?)()()??()())( |  29     | 0.00099 s | 0.327 s   | 
-|                 |         |  78ms   | 7ms                 | 
-|                 |         |  389ms  | 21ms                | 
-|                 |         |  529ms  |  TLE                |
-|                 |         |  498ms  |  TLE                |
+|     Input          |    ((?))     | ()?)()()??()())( | ((()))()()??()()???)()(()())?)(?) | ()?(???(?(????????????(??((???)(???....|
+   -----------------    -----------   ----------------   ---------------------------------  ----------------------------------------
+|     Output         |    4         | 29               | 91                                | 4270310                                |
+   -----------------    -----------   ----------------- ----------------------------------  ----------------------------------------
+|     Greedy         |    0.001 s   | 0.00099 s        | 0.002 s                           | 0.12 s                                 |
+   -----------------    -----------   ----------------- ----------------------------------  ----------------------------------------
+|Dynamic Programming |    0.157 s   | 0.327 s          | 0.636 s                           | TLE                                    |
+   -----------------    -----------  ------------------ ----------------------------------   ---------------------------------------
+
  
 Greedy is better than DP for this problem if we compare them from memory and time complexity. One of the reason is DP uses nested loops which make the time complexity become higher. As we can see from the complexity of both techniques: 
 - DP = O(N^4) 
