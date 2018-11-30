@@ -26,31 +26,32 @@ C++ 14
 ### THOUGHT PROCESS
 One of the solution is to use greedy algorithm. Greedy algorithm is the one that always makes the choice that seems to be the best at that moment. The greedy algorithm has only one shot to compute the optimal solution so that it can never goes back and reverses the decision.
 In this particular case, we can conclude that there are 3 methods in term of finding the correct bracket: 
+
 1. |S| must be even. |S| is number of chars in a string that is/are currently checked. 
     Example: ((?))
-    - |S| = 1 --> (   
-    - |S| = 1 --> (   
-    - |S| = 1 --> ?  
-            :
-            :
-            : (to be continued)
-    - |S| = 2 --> (( 
-    - |S| = 2 --> (? 
-    - |S| = 2 --> ?)
-    - |S| = 2 --> )) 
-            :
-            :
-            : (to be continued)
-      - |S| = 2 --> (( 
-    - |S| = 2 --> (? 
-    - |S| = 2 --> ?)
-    - |S| = 2 --> )) 
+    - |S| = 1 --> (  <not fulfilled> 
+    - |S| = 1 --> (  <not fulfilled>
+    - |S| = 1 --> ?  <not fulfilled>
+    -(to be continued)
+   
+    - |S| = 2 --> ((  <fulfilled>
+    - |S| = 2 --> (?  <fulfilled>
+    - |S| = 2 --> ?)  <fulfilled>
+    - |S| = 2 --> ))  <fulfilled>
+   
+    - |S| = 3 --> ((?  <not fulfilled>
+    - |S| = 3 --> (?)  <not fulfilled>
+    - |S| = 3 --> ?))  <not fulfilled>
+   
+    - |S| = 4 --> ((?) <fulfilled>
+    - |S| = 4 --> (?)) <fulfilled>
     
-    
-2. Check one index with other index from left to right (encounter '(' and '?'). 2 dimensional array is used because we want to check one index with another index. 
-    
-             for(int i = 0; i < len; i++)  // checking one index
-             {
+    - |S| = 5 --> ((?)) <not fulfilled> 
+     
+2. Check one index with other index from left to right (encounter '(' and '?'). 2 dimensional array is used because we want to check one index with another index. Therefore to achieve this method, we use 'for' looping. 'cur' variable to save the changes and 'vis' array to record the current "feasible" bracket.
+
+         for(int i = 0; i < len; i++)  // checking one index
+         {
             int cur = 0;
             for(int j = i; j < len; j++) { // with the index next to the first index that we checked
             if(s[j] == '(' || s[j] == '?') // if we find '(' bracket and '?' (since '?' could be consider as correct bracket)
@@ -58,7 +59,7 @@ In this particular case, we can conclude that there are 3 methods in term of fin
                 {
                     cur++;
                 }
-            else 
+             else 
                 {
                     cur--;  
                 }
@@ -68,9 +69,8 @@ In this particular case, we can conclude that there are 3 methods in term of fin
                 }
              else break; // if cur is less than 0 then it did not meet the expectation of bracket that we desire in this  <br>                                    //particular method (for example: ")", "())", or "?))")
                }
-             }
+           }
          
- * we use cur variable to save the changes and vis array to record the current "feasible" bracket. 
  
  3. Check the index with another index from right to left ( encounter ')' and '?') 
     it is similiar to the second method, but the index is checked from right index to left index. 
@@ -103,10 +103,6 @@ In this particular case, we can conclude that there are 3 methods in term of fin
 The greedy part is when we check one index with another index from right to left and also from left to right to find the optimal solution, in terms, not reverses the decision. By looking at our algorithm, we can see that it never reverses the decision which fit the one of the greedy terms.
  
 **COMPLEXITY : O(N^2) where N = |s|**
- 
-#### INPUT SAMPLES
-
-![GREEDY](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/greedy%20monster.PNG)
 
 ## DYNAMIC PROGRAMMING
 Dynamic Programming is breaking down an optimization problem into simple sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. In order solve this problem by using DP, we use memoization which ensures that a method doesn't run for the same inputs more than once by keeping a record of the results for the given inputs. 
@@ -146,25 +142,17 @@ Here is to output the amount of "correct bracket" in the inputted string.
 The DP part is when we use 'bool solve' function for the memoization, to store the calculation so that it keeps the records of the results and does not run the same input more than once. So it 'supposedly' should save time. 
 COMPLEXITY : O(N^4)
 
-#### INPUT SAMPLES
-![DP](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/monster%20dp.PNG)
+## INPUT SAMPLES X COMPARISON x CONCLUSION
 
-## COMPARISON 
-
-
-| Input                       |  Greedy | Dynamic Programming |
+| Input           | Output  |  Greedy | Dynamic Programming |
 ---                                ---            ---
-|((?) 4 4  ok 1 number(s):”4” |  46ms   | 0ms                 | 
-|                             |  46ms   | 4ms                 | 
-|                             |  78ms   | 7ms                 | 
-|                             |  389ms  | 21ms                | 
-|                             |  529ms  |  TLE                |
-|                             |  498ms  |  TLE                |
+|((?))            |    4    | 0.001 s   | 0.157 s   | 
+|()?)()()??()())( |  29     | 0.00099 s | 0.327 s   | 
+|                 |         |  78ms   | 7ms                 | 
+|                 |         |  389ms  | 21ms                | 
+|                 |         |  529ms  |  TLE                |
+|                 |         |  498ms  |  TLE                |
  
-
-
-## CONCLUSION 
-
 Greedy is better than DP for this problem if we compare them from memory and time complexity. One of the reason is DP uses nested loops which make the time complexity become higher. As we can see from the complexity of both techniques: 
 - DP = O(N^4) 
 - Greedy = O(N^2)
