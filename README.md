@@ -14,9 +14,9 @@ A comparison of implementation of &lt;problem name> using Dynamic Programming an
 C++ 14
 
 ## PROBLEM STATEMENT
- ![Problem 1](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20first.PNG)
- ![Problem 2](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20second.PNG)
- ![Problem 3](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20third.PNG)
+ ![Problem 1](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20(1).PNG)
+ ![Problem 2](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20(2).PNG)
+ ![Problem 3](https://github.com/AAlab1819/ProjectTeam01-B/blob/master/problem%20monster%20(3).PNG)
    
 To solve this problem, the time complexity and memory allocation must be considered in terms on creating a good and efficient algorithm. Therefore we use greedy and dynamic programming approach to find which algorithm is better and more efficient. 
 
@@ -105,7 +105,7 @@ The greedy part is when we check one index with another index from right to left
 ## DYNAMIC PROGRAMMING
 Dynamic Programming is breaking down an optimization problem into simple sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. In order solve this problem by using DP, we use memoization which ensures that a method doesn't run for the same inputs more than once by keeping a record of the results for the given inputs. 
 
-Memoization is used by using 'bool solve (int pos, int nopen)' and then 'temp' to store the calculation.
+Memoization is used by using 'bool solve (int pos,int nopen)' and then 'temp' to store the calculation.
 So, the 'bool solve' function is to finds out if a certain substring can be a valid sequence of brackets. 
 
         const char open='(',close=')';
