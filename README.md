@@ -130,11 +130,7 @@ The greedy part is when we check one index with another index from right to left
  
 **TIME COMPLEXITY   : O(N^2) where N = |s|** | **MEMORY ALLOCATION : 0 (Insignificantly small)**
 
-## DYNAMIC PROGRAMMING
-Dynamic Programming is breaking down an optimization problem into simple sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. In order solve this problem by using DP, we use memoization which ensures that a method doesn't run for the same inputs more than once by keeping a record of the results for the given inputs. 
 
-Memoization is used by using 'bool solve (int pos, int nopen)' and then 'temp' to store the calculation.
-So, the 'bool solve' function is to finds out if a certain substring can be a valid sequence of brackets. 
 
         const char open='(',close=')';
         string str;
